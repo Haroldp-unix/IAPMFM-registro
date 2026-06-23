@@ -1,0 +1,45 @@
+name: Generar EXE para Windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: |
+          pip install pyqt5 pillow pyinstaller
+
+      - name: Asegurar carpeta fotos
+        run: |
+          if not exist fotos mkdir fotos
+        shell: cmd
+
+      - name: Compilar a EXE
+        run: |
+          pyinstaller --onefile --noconsole --name IAPMFM `
+            --add-data "style.qss;." `
+            --add-data "login_window.py;." `
+            --add-data "main_window.py;." `
+            --add-data "edit_dialog.py;." `
+            --add-data "detalle_dialog.py;." `
+            --add-data "fotos;fotos." `
+            main.py
+        shell: powershell
+
+      - name: Subir EXE como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: IAPMFM-Windows
+          patch: dist/IAPMFM.exe
