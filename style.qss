@@ -1,0 +1,76 @@
+/* Fondo general */
+QWidget {
+    background-color: #1a1e2b;
+    color: #d0d0d0;
+    font-family: "Segoe UI", Arial;
+}
+
+/* Botones */
+QPushButton {
+    background-color: #2a2f3d;
+    border: 1px solid #3a4050;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #dddddd;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #353b4a;
+    border-color: #5a6070;
+}
+QPushButton:pressed {
+    background-color: #1e2230;
+}
+
+/* Campos de texto */
+QLineEdit, QDateEdit, QComboBox {
+    background-color: #252a35;
+    border: 1px solid #3a4050;
+    padding: 6px;
+    border-radius: 3px;
+    color: #e0e0e0;
+}
+
+/* Tablas */
+QTableWidget {
+    background-color: #212632;
+    gridline-color: #3a4050;
+    selection-background-color: #2e3a50;
+}
+QHeaderView::section {
+    background-color: #2a2f3d;
+    padding: 6px;
+    border: none;
+    border-bottom: 2px solid #3a4050;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+/* Pestañas */
+QTabWidget::pane {
+    border: 1px solid #3a4050;
+    background-color: #1a1e2b;
+}
+QTabBar::tab {
+    background-color: #252a35;
+    padding: 8px 20px;
+    margin-right: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+QTabBar::tab:selected {
+    background-color: #1a1e2b;
+    border-bottom: 2px solid #4a6080;
+}
+
+/* Etiquetas */
+QLabel {
+    color: #cccccc;
+}
+
+/* Barra de estado */
+QStatusBar {
+    background-color: #141822;
+    color: #aaaaaa;
+    border-top: 1px solid #3a4050;
+}
